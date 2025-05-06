@@ -1,0 +1,4 @@
+mobio-base-sdk==1.0.14
+mobio-admin-sdk
+python-dateutil
+m-utilities

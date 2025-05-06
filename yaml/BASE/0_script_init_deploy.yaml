@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jo-script-init-deployment
+  labels:
+    app: jo-script-init
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jo-script-init
+  template:
+    metadata:
+      labels:
+        app: jo-script-init
+    spec:
+       serviceAccountName: mobio
+       containers:
+        - name: jo
+          image: {image}
+          imagePullPolicy: IfNotPresent
+          command: ["/bin/sh", "-c"]
+          args: ["cd $JO_HOME; sh prepare_env.sh && ./script-update-version.sh && tail -f /dev/null"]
+          resources:
+            requests:
+              memory: 70Mi
+              cpu: 80m
+            limits:
+              memory: 1Gi
+              cpu: 500m
+          envFrom:
+            - configMapRef:
+                name: mobio-config
+            - secretRef:
+                name: mobio-secret
+          volumeMounts:
+            - name: mobio-shared-data
+              mountPath: /media/data/resources/
+            - name: mobio-public-shared-data
+              mountPath: /media/data/public_resources/
+       imagePullSecrets:
+        - name: registrypullsecret
+       volumes:
+        - name: mobio-shared-data
+          persistentVolumeClaim:
+            claimName: mobio-resources-pvc
+        - name: mobio-public-shared-data
+          persistentVolumeClaim:
+            claimName: mobio-public-resources-pvc
