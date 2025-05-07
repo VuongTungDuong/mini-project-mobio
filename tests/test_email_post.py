@@ -21,7 +21,7 @@ class TestEmailPost(TestCase):
 
     def test_post_email(self):
         # Test valid email
-        for _ in range(100000000000):
+        for _ in range(1000):
             response = self.app.post("/api/v1.0/email", json={"email": Faker().email()})
             self.assertEqual(response.status_code, 201)
             # response_data = response.get_json()
