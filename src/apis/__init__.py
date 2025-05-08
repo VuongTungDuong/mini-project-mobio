@@ -7,6 +7,7 @@ Date created: 2025/05/05
 from functools import wraps
 
 from flask import Flask, jsonify
+from flask_cors import CORS
 from mobio.libs.logging import LoggingConstant, MobioLogging
 from mobio.sdks.admin import MobioAdminSDK
 from mobio.sdks.base.common import CONSTANTS
@@ -26,6 +27,9 @@ from configs import RedisConfig, joApplicationConfig
 
 sys_conf = SystemConfig()
 app = Flask(joApplicationConfig.NAME, static_folder=None)
+
+
+CORS(app)
 MobioAdminSDK().config(
     admin_host=joApplicationConfig.ADMIN_HOST,  # admin host (VD:https://api-test1.mobio.vn/)
     redis_uri=RedisConfig.REDIS_URI,  # redis uri (VD: redis://redis-server:6378/0)
