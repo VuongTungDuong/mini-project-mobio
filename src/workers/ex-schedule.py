@@ -6,7 +6,6 @@ from mobio.libs.m_scheduler_partitioning.scheduler_models.scheduler_state_model 
     SchedulerStateModel,
 )
 from pymongo import UpdateOne
-
 from src.models.email_model import EMAIL, EMAIL_STATUS
 from src.modules.db import db
 

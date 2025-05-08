@@ -2,7 +2,6 @@ import random
 
 from flask import Blueprint, jsonify, request
 from flask.views import MethodView
-
 from src.models.email_model import EMAIL_STATUS, EmailModel, EmailValidate
 
 email_bp = Blueprint("email", __name__, url_prefix="/email")

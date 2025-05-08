@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """Company: MobioVN
 Date created: 2025/05/05
 """
 
 from functools import wraps
 
+from configs import RedisConfig, joApplicationConfig
 from flask import Flask, jsonify
 from flask_cors import CORS
 from mobio.libs.logging import LoggingConstant, MobioLogging
@@ -22,8 +22,6 @@ from mobio.sdks.base.common.mobio_exception import (
     ParamInvalidError,
 )
 from mobio.sdks.base.common.system_config import SystemConfig
-
-from configs import RedisConfig, joApplicationConfig
 
 sys_conf = SystemConfig()
 app = Flask(joApplicationConfig.NAME, static_folder=None)

@@ -1,7 +1,6 @@
 from unittest import TestCase
 
 from faker import Faker
-
 from src.apis.v1_0.blueprints_api import app
 
 

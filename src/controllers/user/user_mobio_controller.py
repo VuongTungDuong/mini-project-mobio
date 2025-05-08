@@ -23,7 +23,7 @@ class UserMobioController(BaseController):
         response_data = request.args.get("response", "")
         if request_data:
             try:
-                data = re.search(r"data=(.*)", request_data).group(1)
+                _ = re.search(r"data=(.*)", request_data).group(1)
                 response_data = re.search(r"response=(.*)", response_data).group(1)
             except AttributeError:
                 return jsonify({"error": "Invalid data format"}), 400

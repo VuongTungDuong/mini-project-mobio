@@ -1,10 +1,9 @@
 from dataclasses import dataclass
 from datetime import datetime
+from typing import Annotated
 
 from annotated_types import Ge, Lt
 from pydantic import BaseModel, Field, Strict
-from typing_extensions import Annotated
-
 from src.modules.db import db
 
 
@@ -56,5 +55,5 @@ class EmailModel:
         try:
             data = db[EMAIL.TABLE].find({})
             return [EmailValidate(**item).model_dump_json() for item in data]
-        except Exception:
-            raise Exception("Failed to fetch email requests")
+        except Exception as e:
+            raise Exception("Failed to fetch email requests") from e

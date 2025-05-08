@@ -24,5 +24,30 @@ readme = "README.md"
 license = {text = "MIT"}
 
 
-[tool.pdm]
-distribution = false
+
+[tool.ruff]
+# Bật các rule cơ bản: lỗi cú pháp, style, bug, import
+select = [
+    "F",   # Pyflakes: lỗi rõ ràng (biến chưa khai báo, chia cho 0, v.v.)
+    "E",   # PEP8 style errors
+    "W",   # PEP8 style warnings
+    "I",   # isort: sắp xếp import
+    "B",   # Bugbear: bug tiềm ẩn
+    "UP"   # Pyupgrade: cú pháp cũ, viết lại cho Python mới hơn
+]
+
+# Loại trừ một số rule không quá quan trọng (tuỳ chọn)
+ignore = ["E501" ,"I001" , "UP009" ]
+
+# E501: dòng quá dài (>79 ký tự) , 
+# I001: không sắp xếp import
+# UP009: comment không cần  | # -*- coding: utf-8 -*-
+
+# B904
+
+
+# Tuỳ chọn: phiên bản Python bạn dùng
+#target-version = "py310"
+
+# Thư mục chứa mã nguồn
+src = ["src"]
