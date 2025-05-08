@@ -55,5 +55,5 @@ class EmailModel:
         try:
             data = db[EMAIL.TABLE].find({})
             return [EmailValidate(**item).model_dump_json() for item in data]
-        except Exception as e:
-            raise Exception("Failed to fetch email requests") from e
+        except Exception:
+            raise Exception("Failed to fetch email requests")

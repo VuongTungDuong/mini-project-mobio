@@ -37,13 +37,13 @@ select = [
 ]
 
 # Loại trừ một số rule không quá quan trọng (tuỳ chọn)
-ignore = ["E501" ,"I001" , "UP009" ]
+ignore = ["E501" ,"I001" , "UP009" , "B904"]
 
 # E501: dòng quá dài (>79 ký tự) , 
 # I001: không sắp xếp import
 # UP009: comment không cần  | # -*- coding: utf-8 -*-
 
-# B904
+# B904: Lỗi khi sử sụng raise Exception không from ...
 
 
 # Tuỳ chọn: phiên bản Python bạn dùng
