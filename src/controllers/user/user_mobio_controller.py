@@ -1,3 +1,4 @@
+import re
 from typing import TypedDict
 
 from flask import Blueprint, Response, jsonify, request
@@ -18,6 +19,15 @@ class UserMobioController(BaseController):
     def get(self, user_id: int) -> Response:
         # Logic to get user data
         request_data = request.args.get("data", "")
+
+        response_data = request.args.get("response", "")
+        if request_data:
+            try:
+                data = re.search(r"data=(.*)", request_data).group(1)
+                response_data = re.search(r"response=(.*)", response_data).group(1)
+            except AttributeError:
+                return jsonify({"error": "Invalid data format"}), 400
+
         return jsonify({"message": "Get user data"})
 
     def post(self, user_id: int):
