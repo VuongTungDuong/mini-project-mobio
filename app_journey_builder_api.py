@@ -4,11 +4,7 @@
 Date created: 2025/05/05
 """
 
-from flask_cors import CORS
-
 from src.apis.v1_0.blueprints_api import app
-
-CORS(app)
 
 print(app.url_map)
 if __name__ == "__main__":
