@@ -13,8 +13,9 @@ class EMAIL:
 
 
 @dataclass
-class EMAIL_STATUS:
+class EmailStatus:
     CHECKING: str = "checking"
+
     PROCESSING: str = "processing"
     DONE: str = "done"
 
@@ -32,11 +33,11 @@ class EmailValidate(BaseModel):
     partition: Annotated[int, Field(description="Partition number"), Ge(0), Lt(10)] = 0
 
     status: Annotated[
-        EMAIL_STATUS,
+        EmailStatus,
         Field(
             description="Status of the email request",
         ),
-    ] = EMAIL_STATUS.CHECKING
+    ] = EmailStatus.CHECKING
     creaded_at: Annotated[datetime, Field(description="Created at timestamp")] = (
         datetime.now()
     )

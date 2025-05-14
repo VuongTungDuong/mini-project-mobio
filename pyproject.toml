@@ -1,53 +1,75 @@
 [project]
 name = "mini-project-mobio"
 version = "0.1.0"
-description = "Default template for PDM package"
-authors = [
-    {name = "duong", email = "vtduong00116@gmail.com"},
-]
-dependencies = [
-    "mobio-base-sdk==1.0.14",
-    "mobio-admin-sdk>=1.0.15",
-    "python-dateutil>=2.9.0.post0",
-    "m-utilities>=1.0.13",
-    "pydantic>=2.11.4",
-    "m-scheduler-partitioning>=0.1.14",
-    "m-kafka-sdk-v2>=1.0.6",
-    "bson>=0.5.10",
-    "pymongo>=4.12.1",
-    "types-confluent-kafka>=1.3.1",
-    "faker>=37.1.0",
-    "ruff>=0.11.8",
-]
-requires-python = "==3.11.*"
+description = "Add your description here"
 readme = "README.md"
-license = {text = "MIT"}
-
-
-
-[tool.ruff]
-# Bật các rule cơ bản: lỗi cú pháp, style, bug, import
-select = [
-    "F",   # Pyflakes: lỗi rõ ràng (biến chưa khai báo, chia cho 0, v.v.)
-    "E",   # PEP8 style errors
-    "W",   # PEP8 style warnings
-    "I",   # isort: sắp xếp import
-    "B",   # Bugbear: bug tiềm ẩn
-    "UP"   # Pyupgrade: cú pháp cũ, viết lại cho Python mới hơn
+requires-python = ">=3.11"
+dependencies = [
+    "cacheout==0.16.0",
+    "cassandra-driver==3.25.0",
+    "click==8.1.3",
+    "configparser==3.5.0",
+    "confluent-kafka==2.2.0",
+    "cython==0.29.36",
+    "elasticsearch==7.17.4",
+    "facepy==1.0.9",
+    "flask==2.3.2",
+    "flask-cors==5.0.0",
+    "google==2.0.3",
+    "google-analytics-data==0.18.11",
+    "google-api-core==2.20.0",
+    "google-api-python-client==2.148.0",
+    "google-auth==2.35.0",
+    "google-cloud-core==2.4.1",
+    "kubernetes==26.1.0",
+    "logstash-formatter==0.5.17",
+    "lxml==5.1.0",
+    "m-abac==1.0.15",
+    "m-cipher==1.5.2",
+    "m-kafka-sdk-v2==1.0.6",
+    "m-olap-sdk==0.1.14",
+    "m-run-script==1.0.3",
+    "m-schedule==1.0.1",
+    "m-scheduler-partitioning==0.1.14",
+    "m-singleton==0.3",
+    "m-validate-import-file-test==0.0.7",
+    "m-validator==0.1",
+    "marshmallow==3.20.1",
+    "mmh3==4.0.1",
+    "mobio-admin-sdk-test==1.0.21",
+    "mobio-dnc-sdk==1.0.2",
+    "mobio-license-sdk==1.0.24",
+    "mobio-location-sdk==1.0.4",
+    "mobio-media-sdk==0.2.13",
+    "mobio-notify-sdk==1.0.8",
+    "nanoid==2.0.0",
+    "numpy>=1.26.4",
+    "oauth2client==4.1.3",
+    "opencv-python==4.8.1.78",
+    "opencv-python-headless==4.8.1.78",
+    "openpyxl==3.1.0",
+    "paginate>=0.5.7",
+    "pandas==2.1.3",
+    "peewee==3.9.6",
+    "phonenumbers==8.12.54",
+    "protobuf==5.27.3",
+    "pycryptodome==3.19.1",
+    "pylbfgs==0.2.0.16",
+    "pymongo==4.6.3",
+    "pymysql==1.1.1",
+    "python-dateutil==2.8.2",
+    "python-docx==0.8.11",
+    "python-jose==3.4.0",
+    "redis==4.5.5",
+    "requests==2.32.0",
+    "rsa==4.7",
+    "scikit-learn==1.5.0",
+    "six==1.16.0",
+    "sonyflake-py==1.3.0",
+    "tqdm==4.66.3",
+    "unidecode==1.1.1",
+    "uwsgi==2.0.22",
+    "werkzeug==3.1.3",
+    "xlrd==1.2.0",
+    "xlsxwriter==1.1.1",
 ]
-
-# Loại trừ một số rule không quá quan trọng (tuỳ chọn)
-ignore = ["E501" ,"I001" , "UP009" , "B904"]
-
-# E501: dòng quá dài (>79 ký tự) , 
-# I001: không sắp xếp import
-# UP009: comment không cần  | # -*- coding: utf-8 -*-
-
-# B904: Lỗi khi sử sụng raise Exception không from ...
-
-
-# Tuỳ chọn: phiên bản Python bạn dùng
-#target-version = "py310"
-
-# Thư mục chứa mã nguồn
-src = ["src"]

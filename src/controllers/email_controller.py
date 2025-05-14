@@ -2,7 +2,7 @@ import random
 
 from flask import Blueprint, jsonify, request
 from flask.views import MethodView
-from src.models.email_model import EMAIL_STATUS, EmailModel, EmailValidate
+from src.models.email_model import EmailStatus, EmailModel, EmailValidate
 
 email_bp = Blueprint("email", __name__, url_prefix="/email")
 
@@ -22,7 +22,7 @@ class EmailController(MethodView):
         try:
             email_request = EmailValidate(**data)
             email_request.partition = random.randint(0, 9)  # Random partition number
-            email_request.status = EMAIL_STATUS.CHECKING
+            email_request.status = EmailStatus.CHECKING
             email_request.creaded_at = (
                 email_request.creaded_at.now()
             )  # Set the current time

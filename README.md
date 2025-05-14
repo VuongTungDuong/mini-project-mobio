@@ -5,7 +5,7 @@ Tạo .venv
 ## Pdm để  quản lý phiên bản
 
 ```bash
-pdm add
+uv add
 ```
 
 đê cài cách pkg chưa tải
@@ -20,4 +20,10 @@ python app_journey_builder_api.py
 
 ```bash
 python -m tests.test_email_post
+```
+
+## Chuyển sang py sang c
+
+```bash
+python setup.py build_ext --inplace
 ```

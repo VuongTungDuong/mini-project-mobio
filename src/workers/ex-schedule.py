@@ -6,7 +6,7 @@ from mobio.libs.m_scheduler_partitioning.scheduler_models.scheduler_state_model 
     SchedulerStateModel,
 )
 from pymongo import UpdateOne
-from src.models.email_model import EMAIL, EMAIL_STATUS
+from src.models.email_model import EMAIL, EmailStatus
 from src.modules.db import db
 
 
@@ -37,7 +37,7 @@ class SendEmailScheduler(MobioScheduler):
                 # lay ra ca
                 data: list[EmailScheduler] = (
                     db[EMAIL.TABLE]
-                    .find({"partition": partition, "status": EMAIL_STATUS.CHECKING})
+                    .find({"partition": partition, "status": EmailStatus.CHECKING})
                     .limit(5)
                     .sort({"creaded_at": 1})
                     .to_list()
@@ -51,7 +51,7 @@ class SendEmailScheduler(MobioScheduler):
                             {"_id": item["_id"]},
                             {
                                 "$set": {
-                                    "status": EMAIL_STATUS.PROCESSING,
+                                    "status": EmailStatus.PROCESSING,
                                 }
                             },
                         )
