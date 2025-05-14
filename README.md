@@ -4,11 +4,23 @@ Tạo .venv
 
 ## Pdm để  quản lý phiên bản
 
+Thêm pkg mới
+
 ```bash
-uv add
+uv add <pkg>
 ```
 
-đê cài cách pkg chưa tải
+Đồng bộ lại môi trường và cái các pkg
+
+```bash
+uv sync
+```
+
+Kiểm tra cập nhật pkg và ghi vào file lock
+
+```bash
+uv lock
+```
 
 ## Run
 
